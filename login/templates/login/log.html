@@ -1,0 +1,17 @@
+{% extends "header2.html" %}
+{% block content %}
+<div  align="center"> <b>{{search}} </b> </div>
+<div  align="center"> <b>{{cname}} </b> </div>
+{% include 'login/includes/login.js' %}
+{% include 'login/includes/login.css' %}
+{% if messages %}
+<div  align="center" style="vertical-align: middle;">
+<b> <ul class="messages">
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+</ul></b>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "header2.html" %}
+{% block content %}
+
+<input type="hidden" name="search" id="search"> {% if request.GET.search %}{{ request.GET.search }}{% endif %} </input>
+ 
+
+{% endblock %}
+
+{% block script %}
+<div  align="center"> <b>{{search}} </b> </div>
+<div  align="center"> <b>{{cname}} </b> </div>
+{% include 'login/includes/table.html' %}
+{% include 'login/includes/login.js' %}
+{% include 'login/includes/login.css' %}
+
+{% endblock %}

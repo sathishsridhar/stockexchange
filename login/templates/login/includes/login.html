@@ -1,0 +1,56 @@
+<div align="center" style = padding-top:10%>
+<button class="loginRegisterButtonStyle" onclick="document.getElementById('id01').style.display='block'">Login</button>
+</div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="POST" action="../validate/">{% csrf_token %}
+
+    <div class="container container-modal">
+      <label><b>Username</b></label>
+      <input id="u1" type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input id="p1" type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button class="new-button" type="submit">Login</button>
+    </div>
+    <div class="container container-modal" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
+    </div>
+  </form>
+</div>
+
+<div align="center">
+<button class="loginRegisterButtonStyle" onclick="document.getElementById('id02').style.display='block'">Register</button>
+</div>
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" method="POST" action="../create/">{% csrf_token %}
+
+    <div class="container container-modal">
+      <label><b>Username</b></label>
+      <input id="u2" type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input id="p2" type="password" placeholder="Enter Password" name="pwd" required>
+        
+      <button class="new-button" type="submit">Register</button>
+    </div>
+
+    <div class="container container-modal" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
+    </div>
+  </form>
+</div>
+<hr>
+<div style="text-align: center;">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
